@@ -19,12 +19,12 @@ def main():
         if title_search:
             title = title_search.group(1)
             dsc_search = re.search('<meta name="description" content="(.*)"', page, re.IGNORECASE)
-            print u' Title:{0:7} {1:.70}'.format('', title)
-            print u' {0:13} {1}'.format('', '/'.join((base_url, html.split('/')[-1])))
+            print u' Title:{0:7} {1:.60}'.format('', title) + (u'...' if len(title) >= 60 else u'')
+            print u' {0:13} {1}'.format('', '/'.join((base_url, '/'.join(html.split('/')[-2:]))))
             if dsc_search:
                 dsc = dsc_search.group(1)
-                print u' Description:{0:1} {1:.140}'.format('', dsc)
-            print '\n'
+                print u' Description:{0:1} {1:.150}'.format('', dsc) + (u'...' if len(dsc) >= 150 else u'')            
+                print '\n'
 
         _in.close()
 

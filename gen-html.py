@@ -30,7 +30,7 @@ def main():
         #TODO catch IOError in case of include target does not exist 
         
         html_file = tmpl[:-4] + 'html'
-        print "  Writing: {0:27} -> {1}".format(tmpl, html_file)
+        print "  Writing: {0:40} -> {1}".format(tmpl, html_file)
  
         _out = codecs.open(html_file, encoding='utf-8', mode='w+')
         _out.write(pystache.render(_in.read(), context))
